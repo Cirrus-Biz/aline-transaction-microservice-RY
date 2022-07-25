@@ -34,7 +34,7 @@ pipeline {
         //     steps {
         //         waitForQualityGate abortPipeline: true
         //     }
-        }
+        // }
         stage('Package') { 
             steps {
                 sh 'mvn -Dmaven.test.failure.ignore=true clean package' 
