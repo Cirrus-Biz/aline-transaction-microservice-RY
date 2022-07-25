@@ -23,17 +23,17 @@ pipeline {
                 sh 'mvn verify -Dmaven.test.failure.ignore=true'
             }
         }
-        stage('SonarQube analysis') {
-            steps {
-                withSonarQubeEnv(installationName: 'sonarqube') {
-                    sh 'mvn sonar:sonar'
-                }
-            } 
-        }
-        stage("Quality gate") {
-            steps {
-                waitForQualityGate abortPipeline: true
-            }
+        // stage('SonarQube analysis') {
+        //     steps {
+        //         withSonarQubeEnv(installationName: 'sonarqube') {
+        //             sh 'mvn sonar:sonar'
+        //         }
+        //     } 
+        // }
+        // stage("Quality gate") {
+        //     steps {
+        //         waitForQualityGate abortPipeline: true
+        //     }
         }
         stage('Package') { 
             steps {
